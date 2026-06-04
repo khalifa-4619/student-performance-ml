@@ -1,0 +1,57 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+
+.venv/
+venv/
+env/
+
+# Environment variables
+
+.env
+
+# Jupyter Notebook
+
+.ipynb_checkpoints/
+
+# Data files (optional: keep or remove based on project decision)
+
+data/*.csv
+data/*.zip
+
+# Model files
+
+*.pkl
+*.joblib
+
+# Logs
+
+*.log
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+
+.vscode/
+.idea/
+
+# Docker
+
+*.tar
+
+# Node (for frontend later)
+
+node_modules/
+dist/
+build/
+
+# Misc
+
+*.swp
