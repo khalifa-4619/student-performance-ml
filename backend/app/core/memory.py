@@ -33,17 +33,13 @@ class InMemoryStore(BaseMemoryStore):
         self._store: Dict[str, List[Dict[str, str]]] = {}
 
     def get(self, session_id: str) -> List[Dict[str, str]]:
-        # Return an existing history thread, or initialize a new sequence seamlessly
-        if session_id not in self._store:
-            self._store[session_id] = [
-                {"role": "system", "content": "You are the Early Warning Platform Assistant advising on student risk indicators."}
-            ]
-        return self._store[session_id]
+        # PURE: Returns the list if it exists, or a clean copy of an empty list without saving it to disk
+        return self._store.get(session_id, [])
 
     def set(self, session_id: str, message: Dict[str, str]) -> None:
         # Trigger explicit history population if session is initialized out of order
         if session_id not in self._store:
-            self.get(session_id)
+            self._store[session_id] = []
         self._store[session_id].append(message)
 
     def clear(self, session_id: str) -> None:
